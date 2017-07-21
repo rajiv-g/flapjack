@@ -31,14 +31,11 @@ when 'debian'
     uri node['flapjack']['apt_repo_uri']
     distribution node['lsb']['codename']
     keyserver 'keys.gnupg.net'
-    key '803709B6'
+    key '8406B0E3803709B6'
     components ['main']
   end
 
-  package 'flapjack' do
-    version "#{node['flapjack']['version']}~#{node['lsb']['codename']}"
-    options '--force-yes'
-  end
+  package 'flapjack'
 else
   fail "A Flapjack package is not available for this platform family: #{platform_family}"
 end
