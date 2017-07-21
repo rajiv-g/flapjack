@@ -1,4 +1,6 @@
+$:.unshift *Dir[File.expand_path('../../files/default/vendor/gems/**/lib', __FILE__)]
 module Flapjack
+  require 'rest-client'
   class << self
     def initialize
       require 'rest-client'

@@ -1,0 +1,14 @@
+/Users/rajiv/.rvm/rubies/ruby-2.1.7/bin/ruby -r ./siteconf20170721-3762-1bi7cv3.rb extconf.rb
+checking for main() in -lstdc++... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling unf.cc
+linking shared-object unf_ext.bundle
+ld: warning: directory not found for option '-L/Users/haven/.sm/pkg/active/lib'
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 unf_ext.bundle ./.gem.20170721-3762-1gtrfo2
+installing default unf_ext libraries
