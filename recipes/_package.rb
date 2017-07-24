@@ -30,7 +30,7 @@ when 'debian'
   apt_repository 'flapjack' do
     uri node['flapjack']['apt_repo_uri']
     distribution node['lsb']['codename']
-    keyserver 'keys.gnupg.net'
+    keyserver 'hkp://keyserver.ubuntu.com:80'
     key '8406B0E3803709B6'
     components ['main']
   end
