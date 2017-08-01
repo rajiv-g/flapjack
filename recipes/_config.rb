@@ -69,4 +69,5 @@ file '/etc/flapjack/flapjack_config.yaml' do
   owner node['flapjack']['user']
   group node['flapjack']['group']
   mode '0750'
+  notifies :restart, 'service[flapjack]', :immediately
 end

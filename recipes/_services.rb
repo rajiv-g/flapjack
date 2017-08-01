@@ -24,8 +24,6 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe 'runit'
-
 ruby_block 'flapjack_service_wait' do
   block do
     Chef::Log.info('Waiting for a Flapjack service to start ...')
@@ -35,13 +33,7 @@ ruby_block 'flapjack_service_wait' do
 end
 
 node['flapjack']['services'].each do |service|
-  runit_service service do
-    options lazy {
-      {
-        :user => node['flapjack']['user'],
-        :ruby_bin_dir => node['flapjack']['ruby_bin_dir'] || node['languages']['ruby']['bin_dir']
-      }
-    }
+  service 'flapjack' do
     subscribes :restart, 'file[/etc/flapjack/flapjack_config.yaml]'
     notifies :run, 'ruby_block[flapjack_service_wait]', :immediately
   end
