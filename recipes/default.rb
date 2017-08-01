@@ -24,7 +24,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-include_recipe 'flapjack::_rest_client'
+#include_recipe 'flapjack::_rest_client'
 
 install_method = node['flapjack']['install_method']
 case install_method
@@ -37,6 +37,11 @@ else
 end
 
 if node['flapjack']['install_redis']
+  if install_method == 'package'
+    service 'redis-flapjack' do
+      action :stop
+    end
+  end
   include_recipe 'flapjack::_redis'
 end
 
