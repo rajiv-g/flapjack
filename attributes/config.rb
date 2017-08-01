@@ -34,3 +34,8 @@ default['flapjack']['config']['gateways']['jsonapi']['enabled'] = 'yes'
 default['flapjack']['config']['gateways']['jsonapi']['host'] = '127.0.0.1'
 default['flapjack']['config']['gateways']['jsonapi']['port'] = 5081
 default['flapjack']['config']['gateways']['jsonapi']['logger']['level'] = 'INFO'
+
+default['flapjack']['config']['gateways']['web']['enabled'] = 'yes'
+default['flapjack']['config']['gateways']['web']['host'] = '127.0.0.1'
+default['flapjack']['config']['gateways']['web']['port'] = 3080
+default['flapjack']['config']['gateways']['web']['logger']['level'] = 'INFO'
