@@ -7,6 +7,5 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.8.2'
 
 depends 'ruby_installer'
-depends 'redisio'
 depends 'dpkg_autostart'
-depends 'runit'
+depends 'redisio', '~> 2.6.1'
