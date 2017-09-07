@@ -26,13 +26,9 @@
 
 packages = node['package_installer']['packages'].to_hash.merge('net-tools' => {})
 
-case node['platform_family']
-when 'debian'
-  if platform?('ubuntu')
-    include_recipe 'ubuntu'
-  else
-    include_recipe 'apt'
-  end
+case node['platform']
+when 'ubuntu'
+  include_recipe 'apt'
 when 'rhel'
   include_recipe 'yum-epel'
   packages.merge!('which' => {})

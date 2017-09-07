@@ -27,8 +27,8 @@
 include_recipe 'build-essential'
 
 # libssl-dev required for SSL support in eventmachine
-case node['platform_family']
-when 'debian'
+case node['platform']
+when 'ubuntu'
   package 'libssl-dev'
 when 'rhel'
   package 'openssl-devel'

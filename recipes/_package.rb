@@ -24,9 +24,9 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-platform_family = node['platform_family']
-case platform_family
-when 'debian'
+platform = node['platform']
+case platform
+when 'ubuntu'
   apt_repository 'flapjack' do
     uri node['flapjack']['apt_repo_uri']
     distribution node['lsb']['codename']
@@ -37,7 +37,7 @@ when 'debian'
 
   package 'flapjack'
 else
-  fail "A Flapjack package is not available for this platform family: #{platform_family}"
+  fail "A Flapjack package is not available for this platform family: #{platform}"
 end
 
 node.override['flapjack']['ruby_bin_dir'] = node['flapjack']['ruby_bin_dir'] || '/opt/flapjack/bin'
